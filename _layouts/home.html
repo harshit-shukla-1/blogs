@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Welcome to</p>
+    <h1 class="hero-title">{{ site.title }}</h1>
+    {% if site.description %}<p class="hero-desc">{{ site.description }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="wrap">
+    <h2 class="section-heading">Latest posts</h2>
+
+    {% if site.posts.size > 0 %}
+      <div class="post-grid">
+        {% for post in site.posts %}
+          <article class="post-card">
+            <a class="post-card-link" href="{{ post.url | relative_url }}">
+              <p class="post-card-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+                {% assign words = post.content | number_of_words %}
+                <span class="dot" aria-hidden="true">&middot;</span>
+                <span>{{ words | divided_by: 200 | at_least: 1 }} min read</span>
+              </p>
+              <h3 class="post-card-title">{{ post.title }}</h3>
+              {% if post.excerpt %}
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+              {% endif %}
+              <span class="post-card-cta">Read more <span aria-hidden="true">&rarr;</span></span>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">No posts yet &mdash; check back soon.</p>
+    {% endif %}
+  </div>
+</section>
