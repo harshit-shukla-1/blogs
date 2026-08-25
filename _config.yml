@@ -1,5 +1,25 @@
----
-theme : minima
-author : Stark
-title : Welcome to the Empire
----
+theme: minima
+title: "Stark's Empire"
+description: "Welcome to the Empire — personal blog of Stark."
+author: Stark
+
+url: "https://harshit-shukla-1.github.io"
+baseurl: "/blogs"
+timezone: Asia/Kolkata
+
+minima:
+  social_links:
+    github: harshit-shukla-1
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
