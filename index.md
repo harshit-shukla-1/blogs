@@ -1,3 +1,4 @@
 ---
-title : Starks Empire
+layout: home
+title: Stark's Empire
 ---
